@@ -39,9 +39,66 @@
 - 本番環境と同じような環境でpreview
 
 
+# importパスエリアス設定
+`@/components/XXX/XXX`
+## tsconfig.json
+```
+// importパスエリアス設定
+"baseUrl": "./",
+"paths": {
+  "@/*": ["src/*"]
+}
+```
+## vite.config.ts
+- こちらも修正する必要があるが、下記モジュールでtsconfig.jsonだけでvite.config.tsにも反映される
+    - `$ npm i -D vite-tsconfig-paths`
+  ```
+  import { defineConfig } from 'vite'
+  import react from '@vitejs/plugin-react-swc'
+  import tsconfigPaths from "vite-tsconfig-paths"
 
+  // https://vitejs.dev/config/
+  export default defineConfig({
+    plugins: [react(), tsconfigPaths()],
+  })
+  ```
 
+# vitest
+## 概要
+Jestと比べると早く動く
+## 導入
+`$ npm i -D vitest happy-dom @vitest/coverage-v8 @testing-library/user-event @testing-library/jest-dom`
+(happy-dom: JESTではjs-domでDOMを構築していたが、happy-domの方が早い)
+### package.json修正
+```
+"test": "vitest",
+"test:watch": "vitest watch",
+"coverage": "vitest run --coverage"
+```
+### vite.config.ts修正
+```
+// vitestの型を適応
+/// <reference types="vitest" />
 
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+import tsconfigPaths from "vite-tsconfig-paths"
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react(), tsconfigPaths()],
+  test: {
+    environment: "happy-dom",
+    // 環境全体に適応
+    setupFiles: ["./vitest-setup.ts"]
+  },
+})
+```
+
+* vitest-setup.ts
+```
+import "@testing-library/jest-dom/vitest"
+```
 
 
 # React + TypeScript + Vite
