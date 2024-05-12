@@ -104,6 +104,63 @@ export default defineConfig({
 import "@testing-library/jest-dom/vitest"
 ```
 
+# Eslint
+`npm i -D eslint`
+`npx eslint --init`
+```
+? How would you like to use ESLint? …
+  To check syntax only
+❯ To check syntax and find problems
+
+? What type of modules does your project use? …
+❯ JavaScript modules (import/export)
+  CommonJS (require/exports)
+  None of these
+
+? Which framework does your project use? …
+❯ React
+  Vue.js
+  None of these
+
+? Does your project use TypeScript? …
+  No
+❯ Yes
+
+? Where does your code run? …  (Press <space> to select, <a> to toggle all, <i> to invert selection)
+✔ Browser
+✔ Node
+
+? Would you like to install them now?  No / › Yes
+
+? Which package manager do you want to use? …
+❯ npm
+  yarn
+  pnpm
+  bun
+```
+
+* .eslintrc.cjs
+`render(<TextInput />)`で`React mut be in scope when using JSX`と出る場合下記のように修正
+```
+rules: {
+  'react/react-in-jsx-scope': "off",
+},
+```
+
+* ルールに違反している確認
+```
+▫️package.json
+"lint": "eslint src",
+"lint:fix": "eslint src --fix"
+```
+
+`npm run lint`
+
+* ルールに違反しているものを修正
+`npm run lint:fix`
+
+
+# Prettier
 
 # React + TypeScript + Vite
 
