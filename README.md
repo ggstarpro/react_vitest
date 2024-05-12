@@ -159,8 +159,35 @@ rules: {
 * ルールに違反しているものを修正
 `npm run lint:fix`
 
+# [Prettier](https://prettier.io/docs/en/configuration.html)
+* prettier.config.js
+```
+JS(ESM):
 
-# Prettier
+/** @type {import("prettier").Config} */
+const config = {
+  trailingComma: "es5",
+  tabWidth: 4,
+  semi: false,
+  singleQuote: true,
+};
+
+export default config;
+```
+
+* package.json
+```
+  "scripts": {
+    "format": "prettier --write src"
+  },
+```
+`npm format`
+
+* vscode
+```
+"prettier.defaultFormatter": ["**/*.astro"],
+"prettier.formatOnSave": true
+```
 
 # React + TypeScript + Vite
 
