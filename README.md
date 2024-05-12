@@ -1,3 +1,49 @@
+# 概要
+- Reactテスト学習用REP
+- 学習内容は[【Reactテスト入門】React Testing Library/Jest/Vitestで学ぶフロントエンドテスト入門](https://www.udemy.com/course/react-frontend-test-tutorial/)に準ずる
+
+
+# 環境構築
+`$ npm create vite@latest react_vitest`
+```
+? Select a framework: › - Use arrow-keys. Return to submit.
+    Vanilla
+    Vue
+❯   React
+    Preact
+    Lit
+    Svelte
+    Solid
+    Qwik
+    Others
+
+[swc](https://swc.rs/)
+? Select a variant: › - Use arrow-keys. Return to submit.
+    TypeScript
+❯   TypeScript + SWC
+    JavaScript
+    JavaScript + SWC
+    Remix ↗
+
+
+  `cd react_vitest`
+  `npm install`
+  `npm run dev`
+```
+
+## build・プレビュコマンド
+* `$ npm run build`
+- distディレクトリにエクスポートされる
+
+* `$ npm run preview`
+- 本番環境と同じような環境でpreview
+
+
+
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
