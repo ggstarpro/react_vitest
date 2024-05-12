@@ -48,6 +48,8 @@
 "paths": {
   "@/*": ["src/*"]
 }
+// test()でエラーが出る時これを追加
+"types": ["vitest/globals"]
 ```
 ## vite.config.ts
 - こちらも修正する必要があるが、下記モジュールでtsconfig.jsonだけでvite.config.tsにも反映される
@@ -67,8 +69,9 @@
 ## 概要
 Jestと比べると早く動く
 ## 導入
-`$ npm i -D vitest happy-dom @vitest/coverage-v8 @testing-library/user-event @testing-library/jest-dom`
+`$ npm i -D vitest happy-dom @vitest/coverage-v8 @testing-library/react @testing-library/user-event @testing-library/jest-dom`
 (happy-dom: JESTではjs-domでDOMを構築していたが、happy-domの方が早い)
+
 ### package.json修正
 ```
 "test": "vitest",
@@ -90,7 +93,8 @@ export default defineConfig({
   test: {
     environment: "happy-dom",
     // 環境全体に適応
-    setupFiles: ["./vitest-setup.ts"]
+    setupFiles: ["./vitest-setup.ts"],
+    globals: true,
   },
 })
 ```
