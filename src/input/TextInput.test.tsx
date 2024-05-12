@@ -4,7 +4,7 @@ import '@testing-library/jest-dom'
 import userEvent from "@testing-library/user-event"
 
 test("textInput Component test", async () => {
-  const user = userEvent.setup();
+  userEvent.setup();
   render(<TextInput />)
 
   const inputElement = screen.getByRole("textbox");
@@ -12,7 +12,7 @@ test("textInput Component test", async () => {
 });
 
 test("TextInput Event test", async () => {
-  const user = userEvent.setup();
+  userEvent.setup();
   render(<TextInput />)
 
   const inputElement = screen.getByRole("textbox");

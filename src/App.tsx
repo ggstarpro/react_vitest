@@ -4,7 +4,9 @@ import TextInput from '@/input/TextInput'
 function App() {
   return (
     <>
-      <TextInput />
+      <div>
+        <TextInput />
+      </div>
     </>
   )
 }
