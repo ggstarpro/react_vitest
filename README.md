@@ -196,12 +196,17 @@ export default config;
 npx lint-staged
 ```
 
+* .husky/pre-push
+```
+npm run test
+```
+
 * package.json
 ```
 "prepare": "husky install"
 ```
 
-`npm run prepare`
+* `npm run prepare`
 ```
 
 > react_vitest@0.0.0 prepare
@@ -213,6 +218,14 @@ install command is deprecated
 # [lint-staged](https://github.com/lint-staged/lint-staged)
 `npm install --save-dev lint-staged # requires further setup`
 
+```
+"lint-staged": {
+  "*.{js,jsx,ts,tsx}": [
+    "eslint --fix",
+    "prettier --write"
+  ]
+}
+```
 
 * vscode
 ```
