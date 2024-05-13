@@ -28,6 +28,7 @@
     // test()でエラーが出る時これを追加
     "types": ["vitest/globals"]
   },
-  "include": ["src"],
+  // "include": ["src"],
+  "include": ["src", "vitest-setup.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

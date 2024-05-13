@@ -41,7 +41,8 @@
 
 
 # importパスエリアス設定
-`@/components/XXX/XXX`
+`@/components/XXX/XXX`という風に書けるようにする
+
 ## tsconfig.json
 ```
 // importパスエリアス設定
@@ -70,8 +71,8 @@
 ## 概要
 Jestと比べると早く動く
 ## 導入
-`$ npm i -D vitest happy-dom @vitest/coverage-v8 @testing-library/react @testing-library/user-event @testing-library/jest-dom`
-(happy-dom: JESTではjs-domでDOMを構築していたが、happy-domの方が早い)
+- `$ npm i -D vitest happy-dom @vitest/coverage-v8 @testing-library/react @testing-library/user-event @testing-library/jest-dom`
+- (happy-dom: JESTではjs-domでDOMを構築していたが、happy-domの方が早い)
 
 ### package.json修正
 ```
@@ -79,6 +80,7 @@ Jestと比べると早く動く
 "test:watch": "vitest watch",
 "coverage": "vitest run --coverage"
 ```
+
 ### vite.config.ts修正
 ```
 // vitestの型を適応
@@ -106,8 +108,8 @@ import "@testing-library/jest-dom/vitest"
 ```
 
 # Eslint
-`npm i -D eslint`
-`npx eslint --init`
+* `npm i -D eslint`
+* `npx eslint --init`
 ```
 ? How would you like to use ESLint? …
   To check syntax only
@@ -161,6 +163,7 @@ rules: {
 `npm run lint:fix`
 
 # [Prettier](https://prettier.io/docs/en/configuration.html)
+* `npm i -D prettier`
 * prettier.config.js
 ```
 JS(ESM):
@@ -187,6 +190,15 @@ export default config;
   }
 ```
 `npm format`
+
+
+
+* vscode
+```
+"prettier.defaultFormatter": ["**/*.astro"],
+"prettier.formatOnSave": true,
+```
+
 
 # [Hasky](https://typicode.github.io/husky/)
 `$ npm install --save-dev husky`
@@ -347,13 +359,6 @@ Would you like to use CSS variables for colors?  no / › yes
 `npx storybook init --builder @storybook/builder-vite
 http://localhost:6006/?path=/story/example-button--primary&onboarding=true`
 
-
-
-* vscode
-```
-"prettier.defaultFormatter": ["**/*.astro"],
-"prettier.formatOnSave": true
-```
 
 # React + TypeScript + Vite
 
