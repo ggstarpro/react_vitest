@@ -229,6 +229,125 @@ install command is deprecated
 }
 ```
 
+# [TailwindCSS](https://tailwindcss.com/docs/guides/vite)
+`npm install -D tailwindcss postcss autoprefixer`
+`npx tailwindcss init -p`
+
+* tailwind.config.js
+```
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+* src/index.css
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+`npm run dev`
+
+
+# [shadcn/ui](https://ui.shadcn.com/docs/installation/vite)
+`npm i -D @types/node`
+
+* vite.config.ts
+```
+// vitestの型を適応
+/// <reference types="vitest" />
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+import tsconfigPaths from "vite-tsconfig-paths"
+import path from "path"
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react(), tsconfigPaths()],
+  test: {
+    environment: "happy-dom",
+    // 環境全体に適応
+    setupFiles: ["./vitest-setup.ts"],
+    globals: true,
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+})
+```
+
+`npx shadcn-ui@latest init`
+```
+Ok to proceed? (y)
+? Would you like to use TypeScript (recommended)? no / › yes
+
+? Which style would you like to use? › - Use arrow-keys. Return to submit.
+❯   Default
+    New York
+
+? Which color would you like to use as base color? › - Use arrow-keys. Return to submit.
+❯   Slate
+    Gray
+    Zinc
+    Neutral
+    Stone
+
+✔ Which color would you like to use as base color? › Slate
+Where is your global CSS file? … src/index.css
+
+Would you like to use CSS variables for colors?  no / › yes
+
+
+? Are you using a custom tailwind prefix eg. tw-? (Leave blank if not) ›  Enter
+
+? Where is your tailwind.config.js located? › tailwind.config.js
+
+? Configure the import alias for components: › @/components
+
+? Configure the import alias for utils: › @/lib/utils
+
+? Are you using React Server Components? › no / yes (Next JSに関する質問でNO)
+
+✔ Write configuration to components.json. Proceed? … yes
+```
+
+
+`npx shadcn-ui@latest add button
+
+
+`npx shadcn-ui@latest add`
+```
+◯   accordion
+◯   alert
+◯   alert-dialog
+◯   aspect-ratio
+◯   avatar
+◯   badge
+◯   breadcrumb
+◯   button
+◯   calendar
+◯ ↓ card
+スペースで決定
+```
+
+# StoryBook
+`npx storybook init --builder @storybook/builder-vite
+http://localhost:6006/?path=/story/example-button--primary&onboarding=true`
+
+
+
 * vscode
 ```
 "prettier.defaultFormatter": ["**/*.astro"],
