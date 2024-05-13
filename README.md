@@ -1,7 +1,7 @@
 # 概要
 - Reactテスト学習用REP
 - 学習内容は[【Reactテスト入門】React Testing Library/Jest/Vitestで学ぶフロントエンドテスト入門](https://www.udemy.com/course/react-frontend-test-tutorial/)に準ずる
-
+- [GitHub](https://github.com/Shin-sibainu/react-env-setup-tutorial)
 
 # 環境構築
 `$ npm create vite@latest react_vitest`
@@ -177,11 +177,42 @@ export default config;
 
 * package.json
 ```
-  "scripts": {
-    "format": "prettier --write src"
-  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "vitest"
+    ]
+  }
 ```
 `npm format`
+
+# [Hasky](https://typicode.github.io/husky/)
+`$ npm install --save-dev husky`
+`$ npx husky init`
+
+* .husky/pre-commit
+```
+npx lint-staged
+```
+
+* package.json
+```
+"prepare": "husky install"
+```
+
+`npm run prepare`
+```
+
+> react_vitest@0.0.0 prepare
+> husky install
+
+install command is deprecated
+```
+
+# [lint-staged](https://github.com/lint-staged/lint-staged)
+`npm install --save-dev lint-staged # requires further setup`
+
 
 * vscode
 ```
