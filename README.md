@@ -203,7 +203,9 @@ npm run test
 
 * package.json
 ```
-"prepare": "husky install"
+"scripts": {
+  "test": "vitest --run",
+  "prepare": "husky install"
 ```
 
 * `npm run prepare`
