@@ -1,6 +1,7 @@
 # 概要
 - Reactテスト学習用REP
 - 学習内容は[【Reactテスト入門】React Testing Library/Jest/Vitestで学ぶフロントエンドテスト入門](https://www.udemy.com/course/react-frontend-test-tutorial/)に準ずる
+- [テストについて](https://github.com/ggstarpro/react_test)
 - [GitHub](https://github.com/Shin-sibainu/react-env-setup-tutorial)
 
 # 環境構築
